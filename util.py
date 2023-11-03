@@ -10,7 +10,7 @@ import random
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def create_model(num_classes, model_type="single_label", dropout_rate=0.7):
-    model = models.resnet50(pretrained=True)echo "# Cascaded_USRenal" >> README.md
+    model = models.resnet50(pretrained=True)
     num_ftrs = model.fc.in_features
     
     model.fc = nn.Sequential(
