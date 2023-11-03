@@ -9,7 +9,7 @@ import random
 
 device = torch.device("cpu")
 
-model = model.to(device)
+
 
 def create_model(num_classes, model_type="single_label", dropout_rate=0.7):
     model = models.resnet50(pretrained=True)
