@@ -7,7 +7,9 @@ from torchvision import transforms, models
 from PIL import Image
 import random
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
+
+model = model.to(device)
 
 def create_model(num_classes, model_type="single_label", dropout_rate=0.7):
     model = models.resnet50(pretrained=True)
