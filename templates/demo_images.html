@@ -1,0 +1,68 @@
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Demo Images</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: flex-start;
+        }
+        .image-grid .image-container {
+            margin: 10px;
+            width: calc(1% - 70px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .image-grid img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .image-grid h4 {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Demo Images for Each Class</h1>
+        <div class="image-grid">
+            {% for folder, images in folder_images.items() %}
+                <div class="image-container">
+                    <h4>{{ folder }}</h4>
+                    {% for image in images %}
+                        <img src="{{ url_for('static', filename=folder + '/' + image) }}" alt="{{ folder }}">
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('upload_file') }}" class="btn btn-primary">Back to Classifier</a>
+    </div>
+</body>
+</html>
