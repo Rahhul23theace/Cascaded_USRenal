@@ -34,8 +34,8 @@ multi_label_model = create_model(len(multi_label_class_names), model_type="multi
 single_label_weights = 'trained_multi_class_model.pth'
 multi_label_weights = 'trained_multi_label_model.pth'
 
-single_label_model.load_state_dict(torch.load(single_label_weights))
-multi_label_model.load_state_dict(torch.load(multi_label_weights))
+single_label_model.load_state_dict(torch.load(single_label_weights, map_location=torch.device('cpu')))
+multi_label_model.load_state_dict(torch.load(multi_label_weights, map_location=torch.device('cpu')))
 
 single_label_model.eval()
 multi_label_model.eval()
